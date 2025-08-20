@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "fpga_led_pio[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_led_pio[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_led_pio[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_led_pio[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_led_pio[4]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_led_pio[5]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_button_pio[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_button_pio[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_button_pio[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_button_pio[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_switch_pio[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_switch_pio[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_switch_pio[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_switch_pio[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
