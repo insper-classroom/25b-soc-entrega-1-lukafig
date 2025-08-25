@@ -1,5 +1,5 @@
 Flow report for Lab1_FPGA_RTL
-Mon Aug 25 10:52:23 2025
+Mon Aug 25 11:37:01 2025
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Aug 25 10:52:23 2025       ;
+; Flow Status                     ; Successful - Mon Aug 25 11:37:01 2025       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; Lab1_FPGA_RTL                               ;
 ; Top-level Entity Name           ; toplevel                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 23 / 41,910 ( < 1 % )                       ;
-; Total registers                 ; 26                                          ;
+; Logic utilization (in ALMs)     ; 123 / 41,910 ( < 1 % )                      ;
+; Total registers                 ; 67                                          ;
 ; Total pins                      ; 57 / 499 ( 11 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/25/2025 10:51:54 ;
+; Start date & time ; 08/25/2025 11:36:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Lab1_FPGA_RTL       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 242190095756604.175612991419069        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 242190095756604.175613258908520        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -102,12 +102,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 1055 MB             ; 00:00:13                           ;
-; Fitter               ; 00:00:16     ; 1.0                     ; 3275 MB             ; 00:00:51                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 949 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 1325 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1103 MB             ; 00:00:00                           ;
-; Total                ; 00:00:28     ; --                      ; --                  ; 00:01:10                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 1086 MB             ; 00:00:13                           ;
+; Fitter               ; 00:00:18     ; 1.1                     ; 3350 MB             ; 00:01:32                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 956 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.4                     ; 1339 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1104 MB             ; 00:00:00                           ;
+; Total                ; 00:00:29     ; --                      ; --                  ; 00:01:52                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1_FPGA_RTL
-Mon Aug 25 10:51:59 2025
+Mon Aug 25 11:36:34 2025
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -15,9 +15,10 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 10. Port Connectivity Checks: "stepmotor:u_motor"
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -44,13 +45,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Aug 25 10:51:59 2025       ;
+; Analysis & Synthesis Status     ; Successful - Mon Aug 25 11:36:34 2025       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; Lab1_FPGA_RTL                               ;
 ; Top-level Entity Name           ; toplevel                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 26                                          ;
+; Total registers                 ; 67                                          ;
 ; Total pins                      ; 57                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -164,7 +165,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -183,25 +185,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------------+
 ; Resource                                    ; Usage             ;
 +---------------------------------------------+-------------------+
-; Estimate of Logic utilization (ALMs needed) ; 23                ;
+; Estimate of Logic utilization (ALMs needed) ; 131               ;
 ;                                             ;                   ;
-; Combinational ALUT usage for logic          ; 39                ;
-;     -- 7 input functions                    ; 0                 ;
-;     -- 6 input functions                    ; 6                 ;
-;     -- 5 input functions                    ; 0                 ;
-;     -- 4 input functions                    ; 0                 ;
-;     -- <=3 input functions                  ; 33                ;
+; Combinational ALUT usage for logic          ; 206               ;
+;     -- 7 input functions                    ; 2                 ;
+;     -- 6 input functions                    ; 53                ;
+;     -- 5 input functions                    ; 20                ;
+;     -- 4 input functions                    ; 33                ;
+;     -- <=3 input functions                  ; 98                ;
 ;                                             ;                   ;
-; Dedicated logic registers                   ; 26                ;
+; Dedicated logic registers                   ; 67                ;
 ;                                             ;                   ;
 ; I/O pins                                    ; 57                ;
 ;                                             ;                   ;
 ; Total DSP Blocks                            ; 0                 ;
 ;                                             ;                   ;
 ; Maximum fan-out node                        ; fpga_clk_50~input ;
-; Maximum fan-out                             ; 26                ;
-; Total fan-out                               ; 248               ;
-; Average fan-out                             ; 1.39              ;
+; Maximum fan-out                             ; 67                ;
+; Total fan-out                               ; 1063              ;
+; Average fan-out                             ; 2.75              ;
 +---------------------------------------------+-------------------+
 
 
@@ -210,8 +212,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
-; |toplevel                  ; 39 (0)              ; 26 (0)                    ; 0                 ; 0          ; 57   ; 0            ; |toplevel                   ; toplevel    ; work         ;
-;    |stepmotor:u_motor|     ; 39 (39)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel|stepmotor:u_motor ; stepmotor   ; work         ;
+; |toplevel                  ; 206 (0)             ; 67 (0)                    ; 0                 ; 0          ; 57   ; 0            ; |toplevel                   ; toplevel    ; work         ;
+;    |stepmotor:u_motor|     ; 206 (206)           ; 67 (67)                   ; 0                 ; 0          ; 0    ; 0            ; |toplevel|stepmotor:u_motor ; stepmotor   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -221,23 +223,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 26    ;
-; Number of registers using Synchronous Clear  ; 24    ;
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 39    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 65    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; 3:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |toplevel|stepmotor:u_motor|cnt[5] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |toplevel|stepmotor:u_motor|steps_left[8]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |toplevel|stepmotor:u_motor|steps_left[10] ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |toplevel|stepmotor:u_motor|cnt[9]         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |toplevel|stepmotor:u_motor|div_limit[4]   ;
+; 4:1                ; 19 bits   ; 38 LEs        ; 38 LEs               ; 0 LEs                  ; Yes        ; |toplevel|stepmotor:u_motor|div_limit[14]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "stepmotor:u_motor" ;
++-------------+-------+----------+--------------+
+; Port        ; Type  ; Severity ; Details      ;
++-------------+-------+----------+--------------+
+; steps[9..0] ; Input ; Info     ; Stuck at GND ;
++-------------+-------+----------+--------------+
 
 
 +-----------------------------------------------------+
@@ -245,22 +260,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 26                          ;
-;     ENA               ; 2                           ;
-;     SCLR              ; 24                          ;
-; arriav_lcell_comb     ; 42                          ;
-;     arith             ; 24                          ;
-;         1 data inputs ; 24                          ;
-;     normal            ; 18                          ;
+; arriav_ff             ; 67                          ;
+;     ENA               ; 26                          ;
+;     ENA SCLR          ; 39                          ;
+;     plain             ; 2                           ;
+; arriav_lcell_comb     ; 209                         ;
+;     arith             ; 88                          ;
+;         1 data inputs ; 88                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 119                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 5                           ;
-;         6 data inputs ; 6                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 33                          ;
+;         5 data inputs ; 20                          ;
+;         6 data inputs ; 53                          ;
 ; boundary_port         ; 57                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.30                        ;
-; Average LUT depth     ; 2.63                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.97                        ;
 +-----------------------+-----------------------------+
 
 
@@ -279,7 +299,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Aug 25 10:51:53 2025
+    Info: Processing started: Mon Aug 25 11:36:29 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1_FPGA_RTL -c Lab1_FPGA_RTL
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -287,70 +307,62 @@ Info (12021): Found 2 design units, including 1 entities, in source file Lab1_FP
     Info (12022): Found design unit 1: Lab1_FPGA_RTL-rtl File: /home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL.vhd Line: 17
     Info (12023): Found entity 1: Lab1_FPGA_RTL File: /home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file stepmotor.vhd
-    Info (12022): Found design unit 1: stepmotor-rtl File: /home/luka/SoC/25b-soc-entrega-1-lukafig/stepmotor.vhd Line: 15
+    Info (12022): Found design unit 1: stepmotor-rtl File: /home/luka/SoC/25b-soc-entrega-1-lukafig/stepmotor.vhd Line: 17
     Info (12023): Found entity 1: stepmotor File: /home/luka/SoC/25b-soc-entrega-1-lukafig/stepmotor.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file toplevel.vhd
-    Info (12022): Found design unit 1: toplevel-rtl File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 13
-    Info (12023): Found entity 1: toplevel File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 4
+    Info (12022): Found design unit 1: toplevel-rtl File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 15
+    Info (12023): Found entity 1: toplevel File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 6
 Info (12127): Elaborating entity "toplevel" for the top level hierarchy
-Info (12128): Elaborating entity "stepmotor" for hierarchy "stepmotor:u_motor" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 32
+Info (12128): Elaborating entity "stepmotor" for hierarchy "stepmotor:u_motor" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 37
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "fpga_led_pio[4]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "fpga_led_pio[5]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "fpga_led_pio[6]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "fpga_led_pio[7]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "fpga_led_pio[8]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "fpga_led_pio[9]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 8
-    Warning (13410): Pin "GPIO[4]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[5]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[6]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[7]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[8]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[9]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[10]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[11]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[12]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[13]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[14]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[15]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[16]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[17]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[18]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[19]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[20]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[21]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[22]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[23]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[24]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[25]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[26]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[27]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[28]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[29]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[30]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[31]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[32]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[33]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[34]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
-    Warning (13410): Pin "GPIO[35]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 9
+    Warning (13410): Pin "fpga_led_pio[4]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 10
+    Warning (13410): Pin "fpga_led_pio[5]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 10
+    Warning (13410): Pin "fpga_led_pio[6]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 10
+    Warning (13410): Pin "fpga_led_pio[7]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 10
+    Warning (13410): Pin "fpga_led_pio[8]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 10
+    Warning (13410): Pin "GPIO[4]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[5]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[6]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[7]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[8]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[9]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[10]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[11]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[12]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[13]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[14]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[15]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[16]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[17]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[18]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[19]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[20]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[21]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[22]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[23]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[24]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[25]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[26]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[27]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[28]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[29]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[30]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[31]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[32]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[33]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[34]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
+    Warning (13410): Pin "GPIO[35]" is stuck at GND File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[4]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[5]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[6]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[7]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[8]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-    Warning (15610): No output dependent on input pin "fpga_switch_pio[9]" File: /home/luka/SoC/25b-soc-entrega-1-lukafig/toplevel.vhd Line: 7
-Info (21057): Implemented 96 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 264 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 39 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
-    Info: Peak virtual memory: 1069 megabytes
-    Info: Processing ended: Mon Aug 25 10:51:59 2025
-    Info: Elapsed time: 00:00:06
+    Info (21061): Implemented 207 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 1099 megabytes
+    Info: Processing ended: Mon Aug 25 11:36:34 2025
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:13
 
 

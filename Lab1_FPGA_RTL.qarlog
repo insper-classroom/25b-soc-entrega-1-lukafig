@@ -1,7 +1,7 @@
 Quartus Prime Archive log --	/home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL.qarlog
 
 Archive:	/home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL.qar
-Date:		Mon Aug 25 11:01:33 2025
+Date:		Mon Aug 25 11:38:18 2025
 Quartus Prime		19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 	=========== Files Selected: ===========
@@ -16,9 +16,3 @@ Quartus Prime		19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 	================ Status: ===============
 All files archived successfully.
-
-
-******* Archived project restoration attempt on Mon Aug 25 11:02:40 2025
-Source archive file:	/home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL.qar
-Archive was extracted into	/home/luka/SoC/25b-soc-entrega-1-lukafig/Lab1_FPGA_RTL_restored/
-		 - successfully.

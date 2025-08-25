@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Aug 25 10:52:15 2025
+Fitter Status : Successful - Mon Aug 25 11:36:53 2025
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : Lab1_FPGA_RTL
 Top-level Entity Name : toplevel
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 23 / 41,910 ( < 1 % )
-Total registers : 26
+Logic utilization (in ALMs) : 123 / 41,910 ( < 1 % )
+Total registers : 67
 Total pins : 57 / 499 ( 11 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )
