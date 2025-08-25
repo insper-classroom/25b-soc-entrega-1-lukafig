@@ -1,0 +1,7 @@
+{
+	"common_dir" : "/home/luka/SoC/25b-soc-entrega-1-lukafig/",
+	"acds_version" : "Version 19.1.0",
+	"platform" : "linux",
+	"os" : "Ubuntu 22.04.5",
+	"qpf" : "Lab1_FPGA_RTL.qpf"
+}

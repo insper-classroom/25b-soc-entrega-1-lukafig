@@ -1,5 +1,5 @@
 Flow report for Lab1_FPGA_RTL
-Mon Aug 18 11:34:01 2025
+Mon Aug 25 10:52:23 2025
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Aug 18 11:34:01 2025       ;
+; Flow Status                     ; Successful - Mon Aug 25 10:52:23 2025       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; Lab1_FPGA_RTL                               ;
-; Top-level Entity Name           ; Lab1_FPGA_RTL                               ;
+; Top-level Entity Name           ; toplevel                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 41 / 41,910 ( < 1 % )                       ;
-; Total registers                 ; 39                                          ;
-; Total pins                      ; 15 / 499 ( 3 % )                            ;
+; Logic utilization (in ALMs)     ; 23 / 41,910 ( < 1 % )                       ;
+; Total registers                 ; 26                                          ;
+; Total pins                      ; 57 / 499 ( 11 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
 ; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/18/2025 11:33:25 ;
+; Start date & time ; 08/25/2025 10:51:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Lab1_FPGA_RTL       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 8796760642683.175552760519573          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 242190095756604.175612991419069        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -89,10 +89,11 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; toplevel    ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; toplevel    ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; toplevel    ; Top                               ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; toplevel                               ; Lab1_FPGA_RTL ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -101,12 +102,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 976 MB              ; 00:00:10                           ;
-; Fitter               ; 00:00:19     ; 1.0                     ; 2389 MB             ; 00:00:31                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 954 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 1192 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1103 MB             ; 00:00:01                           ;
-; Total                ; 00:00:31     ; --                      ; --                  ; 00:00:48                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 1055 MB             ; 00:00:13                           ;
+; Fitter               ; 00:00:16     ; 1.0                     ; 3275 MB             ; 00:00:51                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 949 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 1325 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1103 MB             ; 00:00:00                           ;
+; Total                ; 00:00:28     ; --                      ; --                  ; 00:01:10                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -115,11 +116,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+----------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; 25b-SoC          ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
-; Fitter               ; 25b-SoC          ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
-; Assembler            ; 25b-SoC          ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
-; Timing Analyzer      ; 25b-SoC          ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
-; EDA Netlist Writer   ; 25b-SoC          ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
+; Analysis & Synthesis ; luka-Zephyrus    ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
+; Fitter               ; luka-Zephyrus    ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
+; Assembler            ; luka-Zephyrus    ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
+; Timing Analyzer      ; luka-Zephyrus    ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; luka-Zephyrus    ; Ubuntu 22.04.5 ; 22         ; x86_64         ;
 +----------------------+------------------+----------------+------------+----------------+
 
 

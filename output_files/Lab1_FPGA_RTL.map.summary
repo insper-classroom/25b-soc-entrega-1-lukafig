@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Mon Aug 18 11:33:31 2025
+Analysis & Synthesis Status : Successful - Mon Aug 25 10:51:59 2025
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : Lab1_FPGA_RTL
-Top-level Entity Name : Lab1_FPGA_RTL
+Top-level Entity Name : toplevel
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 39
-Total pins : 15
+Total registers : 26
+Total pins : 57
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
